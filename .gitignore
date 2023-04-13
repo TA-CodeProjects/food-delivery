@@ -1,0 +1,4 @@
+.env
+backend/seeder.js
+node_modules
+package-lock.json
