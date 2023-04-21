@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import connectDB from './config/db.js'
 
 import userRoutes from './routes/userRoutes.js'
+import restaurantRoutes from './routes/restaurantRoutes.js'
 import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 
 dotenv.config()
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json())
 
 app.use('/api/users', userRoutes)
+app.use('/api/restaurants', restaurantRoutes)
 
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))

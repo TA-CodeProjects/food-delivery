@@ -1,5 +1,5 @@
 {
-  "name": "menu-generator",
+  "name": "food-delivery",
   "version": "1.0.0",
   "description": "Generate menus for download",
   "main": "server.js",

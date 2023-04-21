@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
 import asyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
+import { ROLE } from '../_helpers/role.js'
 
 const protect = asyncHandler(async (req, res, next) => {
     let token
@@ -30,8 +31,17 @@ const protect = asyncHandler(async (req, res, next) => {
     }
 })
 
+const restaurant = (req, res, next) => {
+    if (req.user && req.user.role === ROLE.Restaurant) {
+        next()
+    } else {
+        res.status(401)
+        throw new Error('Not authorized, as restaurant')
+    }
+}
+
 const admin = (req, res, next) => {
-    if (req.user && req.user.isAdmin) {
+    if (req.user && req.user.role === ROLE.Admin) {
         next()
     } else {
         res.status(401)
@@ -39,4 +49,4 @@ const admin = (req, res, next) => {
     }
 }
 
-export { protect, admin }
+export { protect, restaurant, admin }

@@ -17,14 +17,14 @@ export class LoginModel {
   public id: string;
   public name: string
   public email: string;
-  public isAdmin: Boolean;
+  public role: string;
   public token: string;
 
-  constructor(id: string, name: string, email: string, isAdmin: boolean, token: string) {
+  constructor(id: string, name: string, email: string, role: string, token: string) {
     this.id = id
     this.name = name
     this.email = email
-    this.isAdmin = isAdmin
+    this.role = role
     this.token = token
   }
 }

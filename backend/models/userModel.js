@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
+import { ROLE } from '../_helpers/role.js'
 
 const userSchema = mongoose.Schema(
     {
@@ -16,10 +17,10 @@ const userSchema = mongoose.Schema(
             type: String,
             required: true,
         },
-        isAdmin: {
-            type: Boolean,
+        role: {
+            type: String,
             required: true,
-            default: false,
+            default: ROLE.Client,
         },
     },
     {

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { RegisterModel } from "../../Models/AuthModel";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { registered, reset } from "../../features/auth/authSlice";
 import Spinner from "../../Services/Spinner";

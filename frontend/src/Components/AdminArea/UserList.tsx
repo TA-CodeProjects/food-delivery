@@ -10,6 +10,9 @@ function UserList() {
   const { users, isLoading, isError, message } = useAppSelector((state) => state.users);
 
   useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
     dispatch(getUsers());
 
     return () => {
@@ -21,7 +24,6 @@ function UserList() {
     return <Spinner />;
   }
 
-  console.log(users);
   return (
     <table>
       <thead>
@@ -33,7 +35,7 @@ function UserList() {
       </thead>
       <tbody>
         {users.map((user) => (
-          <UserItem user={user} />
+          <UserItem key={user.id} user={user} />
         ))}
       </tbody>
     </table>

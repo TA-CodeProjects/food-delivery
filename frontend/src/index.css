@@ -108,10 +108,20 @@ h3 {
   background: none;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 .form,
 .content {
   width: 70%;
   margin: 0 auto;
+}
+
+.form a {
+  text-align: right;
+  text-decoration: underline;
 }
 
 .form-group {
@@ -150,6 +160,7 @@ h3 {
   align-items: center;
   justify-content: center;
 }
+
 
 .btn svg {
   margin-right: 8px;
@@ -217,6 +228,8 @@ table th {
   background-color: #04AA6D;
   color: white;
 }
+
+
 
 
 @keyframes spin {

@@ -23,10 +23,10 @@ function Header() {
             <li>
               <span>Hello, {user?.name} </span>
             </li>
-            {user?.isAdmin === true && (
+            {user?.role === "Admin" && (
               <li>
                 <Link to="/admin">
-                 <MdAdminPanelSettings size={24}/> Admin Panel
+                  <MdAdminPanelSettings size={24} /> Admin Panel
                 </Link>
               </li>
             )}
@@ -35,6 +35,18 @@ function Header() {
                 <FaSignOutAlt /> Logout
               </button>
             </li>
+            <li>
+              <Link to="/addRestaurant">
+                <p>Add Restaurant</p>
+              </Link>
+            </li>
+            {user.role === "Restaurant" && (
+              <li>
+                <Link to="Restaurant">
+                  <p>Restaurant</p>
+                </Link>
+              </li>
+            )}
           </>
         ) : (
           <>

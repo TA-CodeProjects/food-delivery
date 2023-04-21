@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 import generateToken from '../utils/jwt.js'
+import { ROLE } from '../_helpers/role.js'
 
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body
@@ -12,7 +13,7 @@ const loginUser = asyncHandler(async (req, res) => {
             id: user._id,
             name: user.name,
             email: user.email,
-            isAdmin: user.isAdmin,
+            role: user.role,
             token: generateToken(user._id)
         })
     } else {
@@ -23,15 +24,17 @@ const loginUser = asyncHandler(async (req, res) => {
 
 const registerUser = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body
-    if (await User.exists({ email: email })) {
+    if (await User.exists({ email })) {
         res.status(400)
         throw new Error('User already exists')
     }
+    const role = ROLE.Client
 
     const user = await User.create({
         name,
         email,
-        password
+        password,
+        role
     })
 
     if (user) {
@@ -39,7 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
             id: user._id,
             name: user.name,
             email: user.email,
-            isAdmin: user.isAdmin,
+            role: user.role,
         })
     } else {
         res.status(400)
@@ -47,15 +50,17 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 })
 
+
+
 const getUser = asyncHandler(async (req, res) => {
-    const user = await User.findById(req.user._id)
+    const user = await User.findById(req.user.id)
 
     if (user) {
         res.json({
             id: user._id,
             name: user.name,
             email: user.email,
-            isAdmin: user.isAdmin,
+            role: user.role,
         })
     } else {
         res.status(404)
@@ -79,7 +84,7 @@ const updateUser = asyncHandler(async (req, res) => {
             id: updateUser._id,
             name: updateUser.name,
             email: updateUser.email,
-            isAdmin: updateUser.isAdmin,
+            role: updateUser.role,
             token: generateToken(updateUser._id)
         })
     } else {
