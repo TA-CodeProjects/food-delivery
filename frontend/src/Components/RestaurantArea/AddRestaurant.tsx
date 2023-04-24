@@ -18,7 +18,11 @@ function AddRestaurant() {
     );
 
     const schema = yup.object().shape({
-        name: yup.string().min(3).max(30).required("Restaurant name is required")
+      name: yup.string().min(3).max(30).required("Restaurant name is required"),
+      description: yup.string().min(3).max(50).required("Description is required"),
+      deliveryTime: yup.string().min(3).max(10).required("Delivery time is required"),
+      deliveryCost: yup.number().min(0).required("Delivery cost is required"),
+      image: yup.string().required("Image url is required"),
     });
 
     const {
@@ -28,7 +32,7 @@ function AddRestaurant() {
     } = useForm<RestaurantPayloadModel>({ mode: "all", resolver: yupResolver(schema) });
 
     const addRestaurant = (model: RestaurantPayloadModel) => {
-      const restaurant = new RestaurantPayloadModel(model.name);
+      const restaurant = new RestaurantPayloadModel(model.name, model.description, model.deliveryTime, model.deliveryCost, model.image);
       dispatch(createRestaurant(restaurant));
     };
 
@@ -55,22 +59,59 @@ function AddRestaurant() {
         </section>
 
         <section className="form">
-            <form onSubmit={handleSubmit(addRestaurant)}>
-                <div className="form-group">
-                    <input
-                    {...register("name")}
-                    type="text"
-                    className="form-control"
-                    placeholder="Enter restaurant name"
-                    />
-                    <span className="">{errors.name?.message}</span>
-                </div>
-                <div className="form-group">
-                    <button disabled={!isValid || !isDirty} type="submit" className="btn btn block">
-                        Add Restaurant
-                    </button>
-                </div>
-            </form>
+          <form onSubmit={handleSubmit(addRestaurant)}>
+            <div className="form-group">
+              <input
+                {...register("name")}
+                type="text"
+                className="form-control"
+                placeholder="Enter restaurant name"
+              />
+              <span className="">{errors.name?.message}</span>
+            </div>
+            <div className="form-group">
+              <input
+                {...register("description")}
+                type="text"
+                className="form-control"
+                placeholder="Enter description"
+              />
+              <span className="">{errors.description?.message}</span>
+            </div>
+            <div className="form-group">
+              <input
+                {...register("deliveryTime")}
+                type="text"
+                defaultValue="30-40"
+                className="form-control"
+                placeholder="Enter delivery time in minutes"
+              />
+              <span className="">{errors.deliveryTime?.message}</span>
+            </div>
+            <div className="form-group">
+              <input
+                {...register("deliveryCost")}
+                type="number"
+                className="form-control"
+                placeholder="Enter delivery cost"
+              />
+              <span className="">{errors.deliveryCost?.message}</span>
+            </div>
+            <div className="form-group">
+              <input
+                {...register("image")}
+                type="text"
+                className="form-control"
+                placeholder="Enter image url"
+              />
+              <span className="">{errors.image?.message}</span>
+            </div>
+            <div className="form-group">
+              <button disabled={!isValid || !isDirty} type="submit" className="btn btn block">
+                Add Restaurant
+              </button>
+            </div>
+          </form>
         </section>
       </>
     );

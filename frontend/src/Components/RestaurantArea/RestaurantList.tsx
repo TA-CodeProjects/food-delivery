@@ -37,7 +37,8 @@ function RestaurantList() {
         <table>
           <thead>
             <tr>
-              <th>Restaurant Name</th>
+              <th>Name</th>
+              <th>Image</th>
               <th></th>
               <th></th>
             </tr>

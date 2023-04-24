@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import menuSchema from './menuModel.js';
 
 const restaurantSchema = mongoose.Schema(
     {
@@ -9,6 +8,22 @@ const restaurantSchema = mongoose.Schema(
             ref: 'User'
         },
         name: {
+            type: String,
+            required: true,
+        },
+        description: {
+            type: String,
+            required: true,
+        },
+        deliveryTime: {
+            type: String,
+            required: true,
+        },
+        deliveryCost: {
+            type: Number,
+            required: true,
+        },
+        image: {
             type: String,
             required: true,
         },

@@ -3,13 +3,17 @@ import authReducer from "../features/auth/authSlice";
 import usersReducer from "../features/users/usersSlice";
 import restaurantReducer from "../features/restaurants/restaurantSlice";
 import menuReducer from "../features/menus/menuSlice";
+import orderReducer from "../features/orders/orderSlice";
+import orderRestaurantReducer from "../features/orderRestaurant/orderRestaurantSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     users: usersReducer,
     restaurants: restaurantReducer,
-    menus: menuReducer
+    menus: menuReducer,
+    orders: orderReducer,
+    orderRestaurant: orderRestaurantReducer,
   },
 });
 

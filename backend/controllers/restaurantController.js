@@ -4,7 +4,7 @@ import User from '../models/userModel.js'
 import Restaurant from '../models/restaurantModel.js'
 
 const addRestaurant = asyncHandler(async (req, res) => {
-    const { name } = req.body
+    const { name, description, deliveryTime, deliveryCost, image } = req.body
     const userToUpdate = await User.findById(req.user.id)
 
     if (await Restaurant.exists({ name })) {
@@ -21,7 +21,11 @@ const addRestaurant = asyncHandler(async (req, res) => {
 
         const restaurant = await Restaurant.create({
             user,
-            name
+            name,
+            description,
+            deliveryTime,
+            deliveryCost,
+            image
         })
         if (restaurant) {
             res.status(201).json({

@@ -35,19 +35,51 @@ export class MenuPayloadModel {
 export class RestaurantModel {
   public id: string;
   public name: string;
-  public menus?: MenuModel[];
+  public description: string;
+  public deliveryTime: string;
+  public deliveryCost: number;
+  public image: string;
 
-  public constructor(id: string, name: string, menus?: MenuModel[]) {
-    this.id = id || "";
-    this.name = name || "";
-    this.menus = menus || [];
+  public constructor(id: string, name: string, description: string, deliveryTime: string,deliveryCost: number,  image: string) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.deliveryTime = deliveryTime;
+    this.deliveryCost =deliveryCost;
+    this.image = image;
   }
 }
 
 export class RestaurantPayloadModel {
   public name: string;
+  public description: string;
+  public deliveryTime: string;
+  public deliveryCost: number;
+  public image: string;
 
-  public constructor(name: string) {
-    this.name = name || "";
+  public constructor(name: string, description: string, deliveryTime: string,deliveryCost: number, image: string) {
+    this.name = name;
+    this.description = description;
+    this.deliveryTime = deliveryTime;
+    this.deliveryCost = deliveryCost;
+    this.image = image;
+  }
+}
+
+export class RestaurantOrderModel {
+  public name: string;
+  public description: string;
+  public deliveryTime: string;
+  public deliveryCost: number;
+  public image: string;
+  public menus: MenuModel[];
+
+  public constructor(name: string, description: string, deliveryTime: string,deliveryCost: number, image: string, menus: MenuModel[]) {
+    this.name = name;
+    this.description = description;
+    this.deliveryTime = deliveryTime;
+    this.deliveryCost = deliveryCost;
+    this.image = image;
+    this.menus = menus;
   }
 }

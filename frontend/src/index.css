@@ -9,6 +9,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
+  min-width: 320px;
 }
 
 a {
@@ -18,6 +19,8 @@ a {
 
 p {
   line-height: 1.7;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 ul {
@@ -37,9 +40,9 @@ h3 {
 
 .container {
   width: 100%;
-  max-width: 960px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   text-align: center;
 }
 
@@ -49,7 +52,7 @@ h3 {
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
 }
 
 .header ul {
@@ -161,6 +164,9 @@ h3 {
   justify-content: center;
 }
 
+.image-table {
+  width: 100px;
+}
 
 .btn svg {
   margin-right: 8px;
@@ -228,6 +234,186 @@ table th {
   background-color: #04AA6D;
   color: white;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0px, 1fr));
+  grid-gap: 1rem;
+  align-items: stretch;
+}
+
+.item-card {
+  overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 0.125rem 0px, rgba(0, 0, 0, 0.12) 0px 0.125rem 0.125rem 0px;
+    transition: box-shadow 0.3s cubic-bezier(0.45, 0, 0.55, 1) 0s, background 100ms ease-out 0s;
+}
+
+.card-body {
+  display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    white-space: nowrap;
+    padding: 1rem;
+    position: relative;
+}
+
+.card-body .details {
+  display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    overflow: hidden;
+    text-align: left;
+    padding-inline-end: 1rem;
+
+}
+
+.card-body .delivery-time {
+  display: block;
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(0, 157, 224, 0.08);
+    border-radius: 0.5rem;
+    -webkit-font-smoothing: antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-style: normal;
+    font-stretch: normal;
+    text-transform: none;
+    font-weight: 400;
+    color: rgb(0, 157, 224);
+}
+
+.card-footer {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-style: normal;
+    font-stretch: normal;
+    text-transform: none;
+    font-weight: 400;
+    display: flex;
+    gap: 0.25rem;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 2rem;
+    border-top: 0.0625rem dashed rgba(32, 33, 37, 0.12);
+    color: rgba(32, 33, 37, 0.64);
+    padding: 0px 1rem;
+}
+
+.item-card h2 {
+  font-size: 1.125rem;
+}
+
+.card-image{
+    width: 100%;
+    position: relative;
+    padding-top: 46%;
+}
+
+.card-image .image {
+  height: 100%;
+  position: absolute; 
+  inset: 0px;
+}
+
+.card-image img {
+  position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.image-header {
+    display: flex;
+    justify-content: center;
+  align-items: center;
+    width: 100%;
+    height: 400px;
+    z-index: -1;
+}
+
+.image-header img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.image-header .details {
+  margin-top: 50px;  
+  color: #fff;
+  position: absolute;
+  font-size: 1.5em;
+}
+
+.image-header .details .delivery {
+  font-size: 1.125rem;
+  margin-top: 40px;
+  background-color: #ddd;
+  color: #000;
+  padding: 10px;
+}
+
+.image-header .details .delivery-time {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.item-box {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+    overflow-x: hidden;
+    transition: border-color.3s ease-out;
+    padding: 1.5rem 1rem;
+    margin: -1px 1.5rem;
+    border-style: solid;
+    border-color: #e4e4e4;
+    border-width: 1px 0;
+    position: relative;
+}
+
+.item-box:hover {
+  border-radius: 4px;
+    box-shadow: 0 2px 10px 0 rgba(32,33,37,6%);
+    opacity: 0;
+    transition: opacity.3s ease-in-out;
+    border-width: 1px;
+    z-index: -1;
+}
+
+.item-box .details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.item-box img {
+  height: 8.125rem;
+    width: 13.125rem;
+    border-radius: 0.25rem;
+}
+
 
 
 

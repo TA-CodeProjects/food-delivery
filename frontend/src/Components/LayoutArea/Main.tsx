@@ -1,7 +1,9 @@
+import RestaurantList from "../OrderArea/RestaurantList";
+
 function Main() {
     return ( 
         <div>
-            Main
+            <RestaurantList />
         </div>
      );
 }

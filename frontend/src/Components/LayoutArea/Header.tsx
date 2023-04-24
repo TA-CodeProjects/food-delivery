@@ -18,6 +18,11 @@ function Header() {
   return (
     <header className="header">
       <ul>
+        <li>
+          <Link to="/">
+            Home
+          </Link>
+        </li>
         {user?.token ? (
           <>
             <li>

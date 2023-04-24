@@ -15,6 +15,9 @@ function RestaurantItem(props: RestaurantItemProps) {
     <tr>
       <td>{props.restaurant.name}</td>
       <td>
+        <img src={props.restaurant.image} alt={props.restaurant.name} className="image-table" />
+      </td>
+      <td>
         <button className="btn" onClick={() => dispatch(deleteRestaurant(props.restaurant.id))}>
           Delete
         </button>

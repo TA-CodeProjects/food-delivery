@@ -14,7 +14,7 @@ function MenuItem(props: MenuItemProps) {
         <td>{props.menu.item}</td>
         <td>{props.menu.description}</td>
         <td>{props.menu.price}</td>
-        <td>{props.menu.image}</td>
+        <td><img src={props.menu.image} alt={props.menu.item} className="image-table"/></td>
         <td>
           <button className="btn btn-reverse">
             <Link to={`/restaurant/${props.menu.restaurant}/updateMenu/${props.menu.id}`}>
