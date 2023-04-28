@@ -43,7 +43,8 @@ function UpdateMenuItem() {
           model.item,
           model.description,
           model.price,
-          model.image
+          model.image,
+          model.quantity
         );
         dispatch(updateMenuItem(menuModel));
         navigate(`/restaurant/${restaurantId}`)

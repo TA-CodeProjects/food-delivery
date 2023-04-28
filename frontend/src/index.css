@@ -35,7 +35,6 @@ h1,
 h2,
 h3 {
   font-weight: 600;
-  margin-bottom: 10px;
 }
 
 .container {
@@ -47,10 +46,12 @@ h3 {
 }
 
 .header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px;
   border-bottom: 1px solid #e6e6e6;
   /* margin-bottom: 60px; */
 }
@@ -339,6 +340,7 @@ table th {
   align-items: center;
     width: 100%;
     height: 400px;
+    position: relative;
     z-index: -1;
 }
 
@@ -390,16 +392,14 @@ table th {
     border-style: solid;
     border-color: #e4e4e4;
     border-width: 1px 0;
-    position: relative;
+    cursor: pointer;
 }
 
 .item-box:hover {
   border-radius: 4px;
     box-shadow: 0 2px 10px 0 rgba(32,33,37,6%);
-    opacity: 0;
     transition: opacity.3s ease-in-out;
     border-width: 1px;
-    z-index: -1;
 }
 
 .item-box .details {
@@ -409,9 +409,226 @@ table th {
 }
 
 .item-box img {
+  object-fit: cover;
   height: 8.125rem;
     width: 13.125rem;
     border-radius: 0.25rem;
+}
+
+.header ul.float-left {
+  float: right;
+}
+ 
+
+.btn-cart {  
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+    background: rgb(0, 157, 224);
+    border-radius: 0.5rem;
+    padding: 10px;
+    border: none;
+}
+
+.quantity-circle {
+  color: rgb(0, 157, 224);
+  background-color: #fff;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+}
+
+.darkBG {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+
+.document {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  background: white;
+  color: white;
+  width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  padding: 10px;
+}
+
+.modalHeader {
+  height: 50px;
+  background: white;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.heading {
+  margin: 0;
+  padding: 10px;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+}
+
+.modalContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  color: #2c3e50;
+  text-align: left;
+}
+
+.modal-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  gap: 20px;
+  padding: 10px;
+  color: #2c3e50;
+  text-align: left;
+}
+
+
+
+.modalContent .quantity {
+  cursor: pointer;
+    border-color: rgba(32, 33, 37, 0.12);
+    border-radius: 4px;
+    border-style: solid;
+    padding: 5px;
+    text-align: center;
+   width: 44px;
+  height: 44px;
+}
+
+.modalContent .quantity:hover {
+  border-color: rgb(0, 157, 224);
+  color: rgb(0, 157, 224)
+}
+
+.modal-item .details {
+  width: 100%;
+}
+
+
+
+.actionContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+.closeBtn {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  color: #2c3e50;
+  background: white;
+  transition: all 0.25s ease;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-self: flex-end;
+  margin-top: -7px;
+  margin-right: -7px;
+}
+
+.closeBtn:hover {
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  transform: translate(-4px, 4px);
+}
+
+
+.deleteBtn:hover {
+  box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.6);
+  transform: translateY(-5px);
+  background: #ff3e4e;
+}
+
+.cancelBtn {
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 11px 28px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  border: none;
+  color: #2c3e50;
+  background: #fcfcfc;
+  transition: all 0.25s ease;
+}
+
+.cancelBtn:hover {
+  box-shadow: none;
+  transform: none;
+  background: whitesmoke;
+}
+
+.image-modal img {
+  object-fit: cover;
+ width: 6rem;
+  height: 5rem;
+}
+
+.modal .btn-cart {
+  width: 100%;
+}
+
+.change-quantity {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(0, 157, 224, 0.08);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color:rgb(0, 157, 224);
+  cursor: pointer;
+  
+}
+
+.change-quantity .circle {
+  background-color: #fff;
+  font-size: 22px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  text-align: center;
 }
 
 

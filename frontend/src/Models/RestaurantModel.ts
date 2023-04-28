@@ -1,3 +1,5 @@
+import { number } from "yup";
+
 export class MenuModel {
   public id: string;
   public restaurant: string;
@@ -5,14 +7,16 @@ export class MenuModel {
   public description: string;
   public price: number;
   public image: string;
+  public quantity: number;
 
-  public constructor(id: string, restaurant: string, item: string, description: string, price: number, image: string) {
+  public constructor(id: string, restaurant: string, item: string, description: string, price: number, image: string, quantity: number) {
     this.id = id;
     this.restaurant = restaurant;
     this.item = item;
     this.description = description;
     this.price = price;
     this.image = image;
+    this.quantity = quantity || 0;
   }
 }
 
@@ -29,6 +33,26 @@ export class MenuPayloadModel {
     this.description = description;
     this.price = price;
     this.image = image;
+  }
+}
+
+export class MenuCartModel {
+  public id: string;
+  public restaurant: string;
+  public item: string;
+  public description: string;
+  public price: number;
+  public image: string;
+  public quantity: number;
+
+  public constructor(id: string, restaurant: string, item: string, description: string, price: number, image: string, quantity: number) {
+    this.id = id;
+    this.restaurant = restaurant;
+    this.item = item;
+    this.description = description;
+    this.price = price;
+    this.image = image;
+    this.quantity = quantity;
   }
 }
 

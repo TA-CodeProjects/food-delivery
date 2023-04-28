@@ -27,8 +27,6 @@ function RestaurantList() {
     return <Spinner />;
   }
 
-  console.log(restaurants.length);
-
   return (
     <>
       <section className="heading">
@@ -36,7 +34,7 @@ function RestaurantList() {
       </section>
       <section className="grid-container">
         {restaurants.map((restaurant) => (
-          <RestaurantCard restaurant={restaurant} />
+          <RestaurantCard key={restaurant.id} restaurant={restaurant} />
         ))}
       </section>
     </>

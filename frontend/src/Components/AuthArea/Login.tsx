@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../../features/auth/authSlice";
 import Spinner from "../../Services/Spinner";
@@ -13,6 +13,7 @@ import { CredentialsModel } from "../../Models/AuthModel";
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useAppDispatch();
   
   const { user, isLoading, isError, isSuccess, message } = useAppSelector(
@@ -37,7 +38,7 @@ function Login() {
     }
 
     if (isSuccess || user) {
-      navigate("/");
+      navigate(location.state.previousUrl, {state: { previousUrl: location.pathname}});
     }
 
     dispatch(reset())

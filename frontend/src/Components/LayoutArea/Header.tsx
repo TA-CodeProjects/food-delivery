@@ -1,13 +1,24 @@
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { logout, reset } from "../../features/auth/authSlice";
+import { reset as resetCart } from "../../features/cart/cartSlice";
+import CartButton from "../CartArea/CartButton";
+import { useEffect } from "react";
 
 function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (!location.state) {
+      dispatch(resetCart());
+    }
+  }, [location, dispatch])
+  
 
   const onLogout = () => {
     dispatch(logout());
@@ -19,9 +30,7 @@ function Header() {
     <header className="header">
       <ul>
         <li>
-          <Link to="/">
-            Home
-          </Link>
+          <Link to="/">Home</Link>
         </li>
         {user?.token ? (
           <>
@@ -67,6 +76,11 @@ function Header() {
             </li>
           </>
         )}
+      </ul>
+      <ul className="float-right">
+        <li>
+          <CartButton />
+        </li>
       </ul>
     </header>
   );

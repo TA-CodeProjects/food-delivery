@@ -32,8 +32,6 @@ function RestaurantPage() {
     return <Spinner />;
   }
 
-  console.log(restaurant);
-
   return (
     <>
       <div className="image-header">
@@ -51,7 +49,7 @@ function RestaurantPage() {
       <div className="menu">
         <h2>Menu</h2>
         {restaurant.menus.map((menu) => (
-            <MenuItem menu={menu} />
+            <MenuItem key={menu.id} menu={menu} />
         ))}
       </div>
     </>
