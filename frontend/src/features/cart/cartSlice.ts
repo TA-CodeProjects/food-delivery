@@ -1,5 +1,6 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { MenuCartModel, MenuModel } from "../../Models/RestaurantModel";
+import cartService from "../checkout/checkoutService";
 
 interface cartState {
   cart: MenuModel[];
@@ -8,6 +9,7 @@ interface cartState {
 const initialState: cartState = {
   cart: [],
 };
+
 
 export const cartSlice = createSlice({
   name: "cart",

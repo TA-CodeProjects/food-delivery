@@ -12,6 +12,9 @@ import MenuList from './Components/RestaurantArea/MenuList';
 import AddMenuItem from './Components/RestaurantArea/AddMenuItem';
 import UpdateMenuItem from './Components/RestaurantArea/UpdateMenuItem';
 import RestaurantPage from './Components/OrderArea/RestaurantPage';
+import CheckoutPage from './Components/CartArea/CheckoutPage';
+import Success from './Components/CartArea/Success';
+import Cancel from './Components/CartArea/Cancel';
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/order/:id" element={<RestaurantPage />} />
+            <Route path="/order/:id/checkout" element={<CheckoutPage />} />
+            <Route path="/order/success" element={<Success />} />
+            <Route path="/order/cancel" element={<Cancel />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/restaurant" element={<RestaurantList />} />

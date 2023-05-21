@@ -9,6 +9,7 @@ interface CartModalProps {
 
 function CartModal(props: CartModalProps) {
     const { cart } = useAppSelector(state => state.cart);
+    const { restaurant } = useAppSelector(state => state.orderRestaurant)
      const [isShow, setIsShow] = useState<boolean>(false);
    
     
@@ -31,17 +32,21 @@ function CartModal(props: CartModalProps) {
                   <div className="details">
                     <h2>{item.item}</h2>
                     <p>{item.description}</p>
-                    <p>{item.price}</p>
+                    <p>₪ {item.price}</p>
                   </div>
                   <div className="image-modal">
                     <img src={item.image} alt={item.item} />
                   </div>
                 </div>
               ))}
+              <div className="delivery">
+                <h4>Delivery cost: ₪ {restaurant.deliveryCost}</h4>
+              </div>
             </div>
+
             <div className="modalActions">
               <div className="actionContainer">
-               <CheckoutButton />
+                <CheckoutButton setIsOpen={props.setIsOpen} />
               </div>
             </div>
           </div>

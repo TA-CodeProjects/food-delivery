@@ -7,6 +7,7 @@ import connectDB from './config/db.js'
 import userRoutes from './routes/userRoutes.js'
 import restaurantRoutes from './routes/restaurantRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
+import checkoutRoutes from './routes/checkoutRoutes.js'
 import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 
 dotenv.config()
@@ -24,6 +25,7 @@ app.use(express.json())
 app.use('/api/users', userRoutes)
 app.use('/api/restaurants', restaurantRoutes)
 app.use('/api/orders', orderRoutes)
+app.use('/api/checkout', checkoutRoutes)
 
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))

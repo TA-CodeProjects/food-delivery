@@ -16,6 +16,7 @@ const getRestaurant = asyncHandler(async (req,res) => {
 
         if (menus) {
             res.json({
+                id: restaurant.id,
                 name: restaurant.name,
                 description: restaurant.description,
                 deliveryTime: restaurant.deliveryTime,

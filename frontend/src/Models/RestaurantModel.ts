@@ -1,4 +1,3 @@
-import { number } from "yup";
 
 export class MenuModel {
   public id: string;
@@ -91,6 +90,7 @@ export class RestaurantPayloadModel {
 }
 
 export class RestaurantOrderModel {
+  public id: string;
   public name: string;
   public description: string;
   public deliveryTime: string;
@@ -98,7 +98,8 @@ export class RestaurantOrderModel {
   public image: string;
   public menus: MenuModel[];
 
-  public constructor(name: string, description: string, deliveryTime: string,deliveryCost: number, image: string, menus: MenuModel[]) {
+  public constructor(id: string, name: string, description: string, deliveryTime: string,deliveryCost: number, image: string, menus: MenuModel[]) {
+    this.id = id;
     this.name = name;
     this.description = description;
     this.deliveryTime = deliveryTime;

@@ -13,6 +13,7 @@ interface OrderRestaurantState {
 
 const initialState: OrderRestaurantState = {
   restaurant: {
+    id: "",
     name: "",
     description: "",
     deliveryTime: "",
@@ -27,7 +28,7 @@ const initialState: OrderRestaurantState = {
 };
 
 export const getRestaurant = createAsyncThunk(
-  "orderRestarant/getOne",
+  "orderRestaurant/getOne",
   async (id: string, thunkAPI) => {
     try {
       return await orderRestaurantService.getRestaurant(id);

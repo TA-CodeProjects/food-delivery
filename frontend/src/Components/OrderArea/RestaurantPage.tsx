@@ -23,9 +23,9 @@ function RestaurantPage() {
 
     dispatch(getRestaurant(id));
 
-    return () => {
-      dispatch(reset());
-    };
+    // return () => {
+    //   dispatch(reset());
+    // };
   }, [isError, message, dispatch, id]);
 
   if (isLoading) {
