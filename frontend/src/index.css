@@ -167,7 +167,6 @@ h3 {
   font-weight: 700;
   cursor: pointer;
   text-align: center;
-  appearance: button;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -188,7 +187,6 @@ h3 {
 
 .btn-block {
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .btn:hover {
@@ -245,6 +243,7 @@ table th {
 }
 
 .grid-container {
+  margin: 30px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0px, 1fr));
   grid-gap: 1rem;

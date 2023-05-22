@@ -65,7 +65,7 @@ function Header() {
         ) : (
           <>
             <li>
-              <Link to="/login">
+              <Link to="/login" state={{previousUrl: location.pathname}}>
                 <FaSignInAlt /> Login
               </Link>
             </li>

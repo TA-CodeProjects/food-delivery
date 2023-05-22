@@ -24,7 +24,7 @@ function Register() {
       password: yup.string().min(4).max(20).required("Password is required"),
       password2: yup.string().test("passwords-match", "Passwords must match", function (value) {
         return this.parent.password === value
-      })
+      }),
     });
 
     const {

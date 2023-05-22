@@ -37,6 +37,9 @@ const createCheckout = asyncHandler(async (req, res, next) => {
     })
     try {
         const session = await stripe.checkout.sessions.create({
+            shipping_address_collection: {
+                allowed_countries: ['IL'],
+            },
             payment_method_types: ["card"],
             line_items: line_items,
            mode: "payment",

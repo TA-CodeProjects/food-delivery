@@ -8,6 +8,8 @@ function CheckoutPage() {
     const {restaurant} = useAppSelector(state => state.orderRestaurant)
     const {cart} = useAppSelector(state => state.cart)
 
+   
+
     return (
       <div>
         <section className="heading">

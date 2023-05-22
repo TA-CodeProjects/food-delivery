@@ -38,11 +38,20 @@ function Login() {
     }
 
     if (isSuccess || user) {
-      navigate(location.state.previousUrl, {state: { previousUrl: location.pathname}});
+      navigate(location.state.previousUrl, { state: { previousUrl: location.pathname } });
     }
 
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+    dispatch(reset());
+  }, [
+    user,
+    isError,
+    isSuccess,
+    message,
+    navigate,
+    dispatch,
+    location.pathname,
+    location.state.previousUrl,
+  ]);
 
   if (isLoading) {
     return <Spinner />;

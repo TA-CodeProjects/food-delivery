@@ -12,11 +12,10 @@ function UserItem(props: UserItemProps) {
 
   return (
     <tr>
-      <td>{props.user.id}</td>
       <td>{props.user.name}</td>
       <td>{props.user.email}</td>
       <td>
-        <button className="btn" onClick={() => dispatch(deleteUser(props.user.id))}>
+        <button className="btn btn-block" onClick={() => dispatch(deleteUser(props.user.id))}>
           Delete
         </button>
       </td>

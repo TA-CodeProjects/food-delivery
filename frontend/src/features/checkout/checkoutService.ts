@@ -9,13 +9,12 @@ const checkout = async (id: string, itemsData: MenuCartModel[]) =>{
      const config = {
        headers: {
          Authorization: `Bearer ${token}`,
-         "Content-Type": "application/json",
        },
      };
 
-     const orderData = { restaurantId: id, itemsData, config };
+     const orderData = { restaurantId: id, itemsData };
 
-     const response = await axios.post(API_URL, orderData);
+     const response = await axios.post(API_URL, orderData, config);
 
      return response.data
 }
