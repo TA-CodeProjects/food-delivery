@@ -1,6 +1,6 @@
 # Food Delivery App
 
-The Food Delivery App is a web-based application that allows customers to order food from restaurants. Restaurant owner can register to the system, add their restaurant and items to the menu .
+The Food Delivery App is a web-based application that allows customers to order food from restaurants. Restaurant owner can register to the app and add their restaurant and items to the menu .
 
 ### The system type of users:
 
