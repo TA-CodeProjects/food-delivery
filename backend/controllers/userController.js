@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
+import Restaurant from '../models/restaurantModel.js'
 import generateToken from '../utils/jwt.js'
 import { ROLE } from '../_helpers/role.js'
 

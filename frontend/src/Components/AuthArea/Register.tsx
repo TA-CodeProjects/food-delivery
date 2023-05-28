@@ -35,9 +35,7 @@ function Register() {
 
 
     const registerUser = (model: RegisterModel) => {
-      const registerModel = new RegisterModel(model.name, model.email, model.password);
-
-      dispatch(registered(registerModel));
+      dispatch(registered(model));
     };
 
 
@@ -47,7 +45,7 @@ function Register() {
         }
 
         if (isSuccess || user) {
-            navigate('/login')
+            navigate("/login", { state: { previousUrl: "/" } });
         }
 
         dispatch(reset())

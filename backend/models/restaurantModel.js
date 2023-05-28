@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import Menu from './menuModel.js';
 
 const restaurantSchema = mongoose.Schema(
     {
@@ -34,9 +35,15 @@ const restaurantSchema = mongoose.Schema(
 )
 
 
+restaurantSchema.pre('deleteOne', { document: true }, async function (next) {
+    await Menu.deleteMany({ restaurant: this._id })
+    next()
+})
+
 restaurantSchema.set('toJSON', {
     virtuals: true
 });
+
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema)
 

@@ -60,10 +60,10 @@ function Login() {
 
 
   const loginUser = (model: CredentialsModel) => {
-    const credentials = new CredentialsModel()
-     credentials.email = model.email
-     credentials.password = model.password
-     dispatch(login(credentials))
+    // const credentials = new CredentialsModel()
+    //  credentials.email = model.email
+    //  credentials.password = model.password
+     dispatch(login(model))
   }
 
   
@@ -74,7 +74,7 @@ function Login() {
         <h1>
           <FaUser /> Login
         </h1>
-        <p>Login and start setting goals</p>
+        <p>Login to start ordering food</p>
       </section>
 
       <section className="form">

@@ -10,7 +10,7 @@ function RestaurantList() {
   const { restaurants, isLoading, isError, message } = useAppSelector((state) => state.orders);
 
   useEffect(() => {
-    if (restaurants.length === 0) {
+    // if (restaurants.length === 0) {
       if (isError) {
         console.log(message);
       }
@@ -20,7 +20,7 @@ function RestaurantList() {
       // return () => {
       //   dispatch(reset());
       // };
-    }
+    // }
   }, [isError, message, dispatch, restaurants.length]);
 
   if (isLoading) {

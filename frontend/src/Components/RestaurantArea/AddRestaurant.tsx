@@ -32,8 +32,7 @@ function AddRestaurant() {
     } = useForm<RestaurantPayloadModel>({ mode: "all", resolver: yupResolver(schema) });
 
     const addRestaurant = (model: RestaurantPayloadModel) => {
-      const restaurant = new RestaurantPayloadModel(model.name, model.description, model.deliveryTime, model.deliveryCost, model.image);
-      dispatch(createRestaurant(restaurant));
+      dispatch(createRestaurant(model));
     };
 
     useEffect(() => {
@@ -41,7 +40,7 @@ function AddRestaurant() {
             toast.error(message)
         }
         if (isSuccess) {
-            navigate("/")
+            navigate("/restaurant");
         }
 
         dispatch(reset())
@@ -82,9 +81,8 @@ function AddRestaurant() {
               <input
                 {...register("deliveryTime")}
                 type="text"
-                defaultValue="30-40"
                 className="form-control"
-                placeholder="Enter delivery time in minutes"
+                placeholder="Enter delivery time in minutes e.g. 30-40"
               />
               <span className="">{errors.deliveryTime?.message}</span>
             </div>

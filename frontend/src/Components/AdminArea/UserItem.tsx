@@ -14,6 +14,7 @@ function UserItem(props: UserItemProps) {
     <tr>
       <td>{props.user.name}</td>
       <td>{props.user.email}</td>
+      <td>{props.user.role}</td>
       <td>
         <button className="btn btn-block" onClick={() => dispatch(deleteUser(props.user.id))}>
           Delete

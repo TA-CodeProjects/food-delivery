@@ -32,51 +32,56 @@ function AddMenuItem() {
     navigate(`/restaurant/${id}`)
   };
   return (
-    <section className="form">
-      <form onSubmit={handleSubmit(addMenu)}>
-        <div className="form-group">
-          <input
-            {...register("item")}
-            type="text"
-            className="form-control"
-            placeholder="Enter menu item name"
-          />
-          <span className="">{errors.item?.message}</span>
-        </div>
-        <div className="form-group">
-          <input
-            {...register("description")}
-            type="text"
-            className="form-control"
-            placeholder="Enter description"
-          />
-          <span className="">{errors.description?.message}</span>
-        </div>
-        <div className="form-group">
-          <input
-            {...register("price")}
-            type="number"
-            className="form-control"
-            placeholder="Enter price"
-          />
-          <span className="">{errors.price?.message}</span>
-        </div>
-        <div className="form-group">
-          <input
-            {...register("image")}
-            type="text"
-            className="form-control"
-            placeholder="Enter image"
-          />
-          <span className="">{errors.image?.message}</span>
-        </div>
-        <div className="form-group">
-          <button disabled={!isValid || !isDirty} type="submit" className="btn block">
-            Add Item
-          </button>
-        </div>
-      </form>
-    </section>
+    <>
+      <section className="heading">
+        <p>Please add items to menu</p>
+      </section>
+      <section className="form">
+        <form onSubmit={handleSubmit(addMenu)}>
+          <div className="form-group">
+            <input
+              {...register("item")}
+              type="text"
+              className="form-control"
+              placeholder="Enter menu item name"
+            />
+            <span className="">{errors.item?.message}</span>
+          </div>
+          <div className="form-group">
+            <input
+              {...register("description")}
+              type="text"
+              className="form-control"
+              placeholder="Enter description"
+            />
+            <span className="">{errors.description?.message}</span>
+          </div>
+          <div className="form-group">
+            <input
+              {...register("price")}
+              type="number"
+              className="form-control"
+              placeholder="Enter price"
+            />
+            <span className="">{errors.price?.message}</span>
+          </div>
+          <div className="form-group">
+            <input
+              {...register("image")}
+              type="text"
+              className="form-control"
+              placeholder="Enter image"
+            />
+            <span className="">{errors.image?.message}</span>
+          </div>
+          <div className="form-group">
+            <button disabled={!isValid || !isDirty} type="submit" className="btn block">
+              Add Item
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
   );
 }
 

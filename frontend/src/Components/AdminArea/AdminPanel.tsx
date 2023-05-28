@@ -3,10 +3,14 @@ import UserList from "./UserList";
 function AdminPanel() {
    
     return (
-      <div>
-        <h1>Admin Panel</h1>
-        <UserList />
-      </div>
+      <>
+        <section className="heading">
+          <h1>Admin Panel</h1>
+        </section>
+        <section>
+          <UserList />
+        </section>
+      </>
     );
 }
 

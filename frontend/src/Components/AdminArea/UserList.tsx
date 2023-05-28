@@ -30,6 +30,7 @@ function UserList() {
         <tr>
           <th>Name</th>
           <th>Email</th>
+          <th>Type</th>
           <th></th>
         </tr>
       </thead>

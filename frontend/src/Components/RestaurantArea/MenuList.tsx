@@ -29,7 +29,7 @@ function MenuList() {
   }
 
   return (
-    <div>
+    <div className="flex-columns">
       <button className="btn btn-reverse">
         <Link to={`/restaurant/${id}/addMenu`}>Add Item</Link>
       </button>
